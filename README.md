@@ -15,7 +15,10 @@
 * `transform` : CSS屬性，能旋轉、傾斜、縮放變形box。
     * 在此用來模擬指針旋轉。
     * rotate() : 旋轉多少degree
+    
 * `transform-origin` : CSS屬性，更改基準點，參數為座標。
+
 * `transition-timing-function` : CSS屬性，改變動畫變換的速度。
     * 在此用來製造指針擺動的效果。
+
 * `setInterval( func , time )` : 設定間隔，每隔固定time執行一次function。
