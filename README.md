@@ -25,7 +25,7 @@
 
 * `setInterval( func , time )` : 設定間隔，每隔固定time執行一次function。
 
-## 03
+## 03 - CSS Variables
 
 * HTML input tag
     * range : 控制滑桿（slide control）
