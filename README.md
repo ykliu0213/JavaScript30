@@ -74,4 +74,34 @@
         <label for="blur">Blur:</label>
         <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
         ```
-    
+## 04 - Array Cardio Day 1
+* filter  
+
+    `回傳符合條件的元素組成的新的陣列`  
+    `語法為： var newArray = arr.filter(callback[, thisArg]) `
+    ```javascript
+    const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+    ```
+* map  
+
+    `回傳透過函式內回傳的值組合成的新的陣列`  
+    ```javascript
+    const fullName = inventors.map((inventor) => inventor.first + ' ' + inventor.last);
+    ```
+* sort
+
+    `回傳符合條件排序後的陣列（原陣列，sort並不會產生新陣列）`  
+    `語法為： arr.sort([compareFunction])`
+    ```javascript
+    const ordered = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
+    ```
+* reduce  
+
+    `將目前陣列中的所有元素做累加的運算`  
+    `語法為： arr.reduce(callback[accumulator, currentValue, currentIndex, array], initialValue)`
+    ```javascript
+    const totalYear = inventors.reduce((total,inventor) => {
+        return total + (inventor.passed - inventor.year);
+    },0);
+    ```
+
