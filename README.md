@@ -77,7 +77,7 @@
 ## 04 - Array Cardio Day 1
 #### Array.prototype function
 * filter()  
-    * 回傳符合條件的元素組成的新的陣列  
+    * 回傳符合條件的元素組成的新的陣列。（過濾陣列內的元素，並回傳過濾後的新陣列）  
     * 語法為： `var newArray = arr.filter(callback[, thisArg]) `
     
         ```javascript
