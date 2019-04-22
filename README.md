@@ -124,10 +124,10 @@
 * `display: flex;`
     * Flex 排版的大致定義，是能更改該項目的長與（或）高，以便貼合任何顯示設備的空間。
     * 由 container 和 items 所組成。
-![image alt][reference]
+![image](https://github.com/ykliu0213/JavaScript30/blob/master/README_img/flex.png)
 * `flex-direction`
     * 改變 container 內部的軸線方向，分別有水平、水平反轉、垂直、垂直反轉四種。
-![image alt][reference]
+![image](https://github.com/ykliu0213/JavaScript30/blob/master/README_img/flex-direction.png)
 * `flex-wrap`
     * 超出範圍時是否換行
 * `flex: flex-grow flex-shrink flex-basis`
