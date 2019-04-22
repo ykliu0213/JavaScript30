@@ -143,8 +143,41 @@
 * `transitionend`
     * 在 transition 結束時會觸發
 
+## 06 - Type Ahead
+* `fetch`
+    * 讓開發者能夠用更簡潔的語法取得非同步資料（可替代XMLHttpRequest）
+    * `fetch`回傳的是 promise 物件
+    * 可以透過 `.json()` 將回傳值轉程json格式，這是 response 的prototype 的 method
+* [Promise](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+    * `.then()`： Callback 用 .then 來添加，達成在非同步運算結束後才呼叫。
 
+        ```javascript
+        fetch(url)
+            .then(blob => blob.json())
+            .then(data => cities.push(...data))
+        ```
+    * `...data` 分割 data
+    * `.push(...data)` 可將回傳陣列裡的物件分割開再個別放進目標陣列裡面
+* new RegExp(wordToMatch, 'gi')
+    * RegExp物件的建構式。（正規表達式）
+    * `'g'`：global. 找全部符合的
+    * `'i'`：insensitive. 忽略大小寫
+* 監聽事件
+    * change：當 `input`、`select`、`textarea`、`radio`、`checkbox` 等表單元素被改變時觸發。 但與 `input` 事件不同的是，`input` 事件會在輸入框輸入內容的當下觸發，而 `change` 事件則是在目前焦點離開輸入框後才觸發。
+    * keyup：「放開」鍵盤時觸發。
+        * 若此時想要知道使用者按下的按鍵，則可以透過 `event.keyCode` 屬性來查詢。
+        * [keyCode](https://gist.github.com/tylerbuchea/8011573 ) 的對應表
 
+* 把 Array 裡面我們要的物件轉成 HTML
+    * `.map()`：回傳透過函式內回傳的值組合成的新的陣列。
+    * `.join()`：將陣列或一個類陣列物件中所有的元素連接、合併成一個字串，並回傳此字串。
+
+* 數字加分隔號
+    ```javascript
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    ```
 
 
 
