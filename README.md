@@ -207,14 +207,14 @@
         ```javascript
         const index = comment.findIndex(comment => comment.id === 823423);
         ```
-* splice
+* `.splice()`
     * 透過刪除既有元素並/或加入新的元素來改變原本陣列的內容。
     * 語法：`array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
 
         ```javascript
         comment.splice(index, 1);
         ```
-* slice
+* `.slice()`
     * 回傳一個新的陣列物件，為原陣列選擇之`begin`到`end`部分的 shallow copy（不包含`end`）
     * 語法：`arr.slice([begin[, end]])`
 
