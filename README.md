@@ -77,29 +77,29 @@
 ## 04 - Array Cardio Day 1
 #### Array.prototype function
 * filter()  
-
-    `回傳符合條件的元素組成的新的陣列`  
-    `語法為： var newArray = arr.filter(callback[, thisArg]) `
+    * 回傳符合條件的元素組成的新的陣列  
+    * 語法為： `var newArray = arr.filter(callback[, thisArg]) `
+    
     ```javascript
     const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
     ```
 * map()  
-
-    `回傳透過函式內回傳的值組合成的新的陣列`  
+    * 回傳透過函式內回傳的值組合成的新的陣列
+    
     ```javascript
     const fullName = inventors.map((inventor) => inventor.first + ' ' + inventor.last);
     ```
 * sort()
-
-    `回傳符合條件排序後的陣列（原陣列，sort並不會產生新陣列）`  
-    `語法為： arr.sort([compareFunction])`
+    * 回傳符合條件排序後的陣列（原陣列，sort並不會產生新陣列）  
+    * 語法為： `arr.sort([compareFunction])`
+    
     ```javascript
     const ordered = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
     ```
 * reduce()  
-
-    `將目前陣列中的所有元素做累加的運算`  
-    `語法為： arr.reduce(callback[accumulator, currentValue, currentIndex, array], initialValue)`
+    * 將目前陣列中的所有元素做累加的運算  
+    * 語法為： `arr.reduce(callback[accumulator, currentValue, currentIndex, array], initialValue)`
+    
     ```javascript
     const totalYear = inventors.reduce((total,inventor) => {
         return total + (inventor.passed - inventor.year);
@@ -107,15 +107,15 @@
     ```
 #### 其他
 * Array.from()
-
-    `從類陣列或可迭代物件建立一個新陣列`  
+    * 從類陣列或可迭代物件建立一個新陣列  
+    
     ```javascript
     Array.from(category.querySelectorAll('a'));
     // querySelectorAll 回傳的是一個 NodeList，因此需透過 Array.from 轉成 Array
     ```
 * console.table()
-
-    `將陣列以表格的方式印出來（出現在瀏覽器的console）`
+    * 將陣列以表格的方式印出來（出現在瀏覽器的console）  
+    
     ```javascript
     console.table(fifteen);
     // fifteen 為一個陣列
