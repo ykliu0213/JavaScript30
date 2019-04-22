@@ -178,8 +178,52 @@
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
     ```
+## 07 - Array Cardio Day 2
+* `.some()`
+    * 檢查陣列中是否至少有一個元素符合條件。
+    * 語法：`arr.some(callback[, thisArg]);` 
 
+        ```javascript
+        const isAdult = people.some(person => ((new    Date()).getFullYear()) - person.year >= 19);
+        ```
+* `.every()`
+    * 檢查陣列中的全部元素是否都符合條件。
+    * 語法：`arr.every(callback[, thisArg])`
 
+        ```javascript
+        const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
+        ```
+* `.find()`
+    * 回傳陣列中第一個符合條件的元素，若無符合對象則回傳`undefined`。
+    * 語法：`arr.find(callback[, thisArg])`
+
+        ```javascript
+        const comment = comments.find(comment => comment.id === 823423);
+        ```
+* `.findIndex()`
+    * 回傳陣列中第一個符合條件的元素索引，若無符合對象則回傳`-1`。
+    * 語法：`arr.findIndex(callback[, thisArg])`
+
+        ```javascript
+        const index = comment.findIndex(comment => comment.id === 823423);
+        ```
+* splice
+    * 透過刪除既有元素並/或加入新的元素來改變原本陣列的內容。
+    * 語法：`array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+
+        ```javascript
+        comment.splice(index, 1);
+        ```
+* slice
+    * 回傳一個新的陣列物件，為原陣列選擇之`begin`到`end`部分的 shallow copy（不包含`end`）
+    * 語法：`arr.slice([begin[, end]])`
+
+        ```javescript
+        const newComments = [...comments.slice(0, index),...comments.slice(index + 1)];
+        ```
+* Shallow copy **vs** Deep copy
+    * `Shallow copy`：只複製某個物件的reference，與原物件共用同一塊記憶體。
+    * `Deep copy`：創造一個一模一樣的新物件，與原物件分別用不同塊記憶體。
 
 
 
