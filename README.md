@@ -120,9 +120,28 @@
         console.table(fifteen);
         // fifteen 為一個陣列
         ```
-
-
-
+## 05 - Flex Panel Gallery
+* `display: flex;`
+    * Flex 排版的大致定義，是能更改該項目的長與（或）高，以便貼合任何顯示設備的空間。
+    * 由 container 和 items 所組成。
+![image alt][reference]
+* `flex-direction`
+    * 改變 container 內部的軸線方向，分別有水平、水平反轉、垂直、垂直反轉四種。
+![image alt][reference]
+* `flex-wrap`
+    * 超出範圍時是否換行
+* `flex: flex-grow flex-shrink flex-basis`
+    * flex-grow、flex-shrink 數值為相對概念。
+        * 大於0時會縮放以及分配剩餘空間
+        * flex: 5 為 flex: 1 的五倍大（One value, unitless number: flex-grow）
+        * flex-grow 決定分配剩餘比例
+* `justify-content align-items`
+    * justify-content：主軸對齊的設定
+    * align-items：交錯軸對齊的設定
+* `classList.toggle( class )`
+    * 參數為要切換的 class name，如果該 class 不存在，則添加；反之，則移除。
+* `transitionend`
+    * 在 transition 結束時會觸發
 
 
 
