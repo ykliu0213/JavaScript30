@@ -156,6 +156,8 @@
             .then(blob => blob.json())
             .then(data => cities.push(...data))
         ```
+* `...`
+    * 展開運算子和其餘運算子。
     * `...data` 分割 data
     * `.push(...data)` 可將回傳陣列裡的物件分割開再個別放進目標陣列裡面
 * new RegExp(wordToMatch, 'gi')
