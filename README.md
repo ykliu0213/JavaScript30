@@ -231,6 +231,7 @@
 
 * Canvas 大小
     * 設定 canvas 寬跟高為整個視窗
+
         ```javascript
         const canvas = document.querySelector('#draw');
         const ctx = canvas.getContext('2d');
@@ -251,6 +252,7 @@
     * lineWidth
         * 線條寬度
     * 繪圖
+
         ```javascript
         // start drawing
         ctx.beginPath();
