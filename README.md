@@ -231,12 +231,12 @@
 
 * Canvas 大小
     * 設定 canvas 寬跟高為整個視窗
-    ```javascript
-    const canvas = document.querySelector('#draw');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    ```
+        ```javascript
+        const canvas = document.querySelector('#draw');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ```
     * JS 取得視窗大小
         * `window.innerWidth` `window.innerHeight`
 * Canvas func
