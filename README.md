@@ -227,6 +227,47 @@
     * `Shallow copy`：只複製某個物件的reference，與原物件共用同一塊記憶體。
     * `Deep copy`：創造一個一模一樣的新物件，與原物件分別用不同塊記憶體。
 
+## 08 - Fun with HTML5 Canvas
+
+* Canvas 大小
+    * 設定 canvas 寬跟高為整個視窗
+    ```javascript
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ```
+    * JS 取得視窗大小
+        * `window.innerWidth` `window.innerHeight`
+* Canvas func
+    * strokeStyle
+        * 勾勒圖形時用的顏色
+    * fillStyle
+        * 填滿圖形時用的顏色
+    * lneJoin
+        * 線條和線條間接合處的樣式
+    * lineCap
+        * 線條結尾的樣式
+    * lineWidth
+        * 線條寬度
+    * 繪圖
+        ```javascript
+        // start drawing
+        ctx.beginPath();
+        // start from
+        ctx.moveTo(lastX, lastY);
+        // go to
+        ctx.lineTo(e.offsetX, e.offsetY);
+        // draw
+        ctx.stroke();
+        ```
+* [Destructuring Assignment](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+    * `[X, Y] = [X_value, Y_value];
+* [hsl color](https://www.w3schools.com/colors/colors_hsl.asp)
+    * `hsl(hue, saturation, lightness)`
+    * hue = 0~360
+    * saturation = 0~100%
+    * lightness = 0~100%
 
 
 
