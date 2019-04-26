@@ -18,11 +18,13 @@ function draw(e){
     if(!isDrawing) return; // stop the func from running when they are not moused down
     console.log(e);
     ctx.strokeStyle = `hsl(${hue} , 100%, 50%)`
+    // start drawing
     ctx.beginPath();
     // start from
     ctx.moveTo(lastX, lastY);
     // go to
     ctx.lineTo(e.offsetX, e.offsetY);
+    // draw
     ctx.stroke();
     [lastX, lastY] = [e.offsetX , e.offsetY];
 
