@@ -271,6 +271,70 @@
     * saturation = 0~100%
     * lightness = 0~100%
 
+## 09 - Dev Tools Domination
+* Chrome dev tools
+    * 在元素上按右鍵 => break on => attribute modification
+    
+* console func
+    * `console.log()`
+        * 印出一段字串
+        * `%s` => 變數加入字串 （現在大多被 [`Template literals`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals) 取代）
+
+            ```javascript
+            console.log('Hello I am a %s string!', '💩');
+            ```
+        * `%c` => 加入CSS設定
+
+            ```javascript
+            console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue');
+            ```
+    * `console.warn()`
+        * 印出一段警告訊息
+    * `console.error()`
+        * 印出一段錯誤訊息
+    * `console.info()`
+        * 印出以驚嘆號開頭的訊息
+    * `console.assert()`
+        * 判斷第一個參數是否為真，false 的話丟出 error 並印出相應訊息
+
+            ```javascript
+            console.assert(p.classList.contains('ouch'), 'That is wrong!');
+            ```
+    * `console.clear()`
+        * 清空 console 區域
+    * `console.dir()`
+        * 印出查看對象的屬性
+    * `console.group()`
+        * 印出樹狀結構，配合 groupCollapsed 以及 groupEnd 方法
+        * `console.group()` / `console.groupCollapsed()` + `console.log()` *n + `console.groupEnd()`
+        
+            ```javascript
+            dogs.forEach(dog => {
+            console.groupCollapsed(`${dog.name}`);
+            console.log(`This is ${dog.name}`);
+            console.log(`${dog.name} is ${dog.age} years old`);
+            console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+            console.groupEnd(`${dog.name}`);
+            });
+            ```
+    * `console.count()`
+        * 以參數為標識記錄調用的次數，調用時在控制台打印標識以及調用次數。
+        * `console.countReset()` ： 重置計數器
+    * `console.time()`
+        * 計時器
+        * `console.time()` + `console.timeEnd()`
+        
+            ```javascript
+            console.time('fetching data');
+            fetch('https://api.github.com/users/wesbos')
+              .then(data => data.json())
+              .then(data => {
+                console.timeEnd('fetching data');
+                console.log(data);
+              });
+            ```
+    * `console.table()`
+        * 將列表型的數據印成表格
 
 
 
