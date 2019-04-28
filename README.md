@@ -348,10 +348,10 @@
 
 * `inBetween`
     * 透過 Boolean 變數來判斷使否在選取範圍內
-    ```javascript
-    if(checkbox === this || checkbox === lastChecked){
+        ```javascript
+        if(checkbox === this || checkbox === lastChecked){
             inBetween = !inBetween;
-    }
-    ```
+        }
+        ```
 
 
