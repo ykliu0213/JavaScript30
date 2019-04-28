@@ -336,6 +336,22 @@
     * `console.table()`
         * 將列表型的數據印成表格
 
+## 10 - Hold Shift and Check Checkboxes
 
+* 偵測使用者 shift 鍵的輸入
+    * `e.shiftKey`
+    
+* `querySelectorAll()`
+    * `input[type="checkbox"]`
+
+        * 指定特定type的 input tag
+
+* `inBetween`
+    * 透過 Boolean 變數來判斷使否在選取範圍內
+    ```javascript
+    if(checkbox === this || checkbox === lastChecked){
+            inBetween = !inBetween;
+    }
+    ```
 
 
