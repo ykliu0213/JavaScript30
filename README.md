@@ -396,6 +396,15 @@
         e.preventDefault();
         ```
 
+## 12 - Key Sequence Detection
+        
+* `.splice()`
+    * 語法：`array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+    * start 若為負，則從最後一個元素往前數（-1 開始）
+
+        ```javascript
+        pressed.splice(-secretCode.length -1 , pressed.length - secretCode.length)
+        ```
 
 
 
