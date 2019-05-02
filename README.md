@@ -355,4 +355,50 @@
         }
         ```
 
+## 11 - Custom Video Player
+
+* html `<video>` tag
+    * 自動撥放：`autoplay`
+    * 影片是否暫停：`video.paused`
+    * 影片當前時間：`video.currentTime`
+    * 影片總長時間：`video.duration`
+    * 播放：`video.play()`
+    * 暫停：`video.pause()`
+    * 監聽：`video.addEventListener('play'/'pause'/'timeupdate')`
+        * 和其他 node 添加 listener 的方式相同
+    * `video[method]`
+        * 類似於 `video.play()`，但無法寫成 `video.method()`，因為會變成呼叫 `video` 底下的 function method
+* `querySelector`
+    * 不只能從 document 中選取元素，也可從 node 中選取元素。
+
+        ```javascript
+        const player = document.querySelector('.player');
+        const video = player.querySelector('.viewer');
+        ```
+    * 除了可以用 class 來當 selector，也可以使用 attribute 當 selector。
+        ```javascript
+        const skipButtons = player.querySelectorAll('[data-skip]');
+        ```
+* 實作全螢幕
+    * [MDN-Fullscreen API
+](https://developer.mozilla.org/zh-TW/docs/Web/API/Fullscreen_API)
+
+* 利用 `&&` 運算子特性簡單實現 `if statement`
+
+    ```javascript
+    (e) => mousedown && scrub(e))
+    ```
+* [`Event.preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+    * 取消事件（如果事件可以取消）
+    * 這次的情況是由於在網頁瀏覽器中按下空白，預設會將網頁捲到底部，那希望取消此一預設，就會用到這個 function
+    
+        ```javascript
+        e.preventDefault();
+        ```
+
+
+
+
+
+
 
