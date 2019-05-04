@@ -406,6 +406,31 @@
         pressed.splice(-secretCode.length -1 , pressed.length - secretCode.length)
         ```
 
+# 13 - Slide in on Scroll
+
+* `debounce(func, wait = 20, immediate = true)`
+    * Scroll 事件觸發太頻繁，每次滾動頁面都會有大量事件觸發，因此需要限制單位時間內觸發頻率
+    * 監聽事件也因此改成這樣：`window.addEventListener('scroll', debounce(checkSlide));`
+    * [Lodash](https://homura0731.github.io/post/2018/09/lodash-debounce/) 函式庫有現成的可以使用
+* 高度計算
+  * `Window.scrollY`
+    * 目前瀏覽器視窗已滾動的Y軸（垂直位置），視窗最上緣離網頁最上緣的距離。
+    * [MDN-Window.scrollY](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY)
+  * `Window.innerHeight`
+    * 目前瀏覽器視窗的高度
+    * [MDN-Window.innerHeight](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight)
+  * `HTMLElement.offsetTop`
+    * 返回指定元素相對於有父元素(offsetParent)中的頂端位置，元素最上緣與父元素最上緣的距離
+    * [HTMLElement​.offsetTop](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop)
+
+
+
+
+
+
+
+
+
 
 
 
