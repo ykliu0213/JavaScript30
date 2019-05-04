@@ -423,15 +423,47 @@
     * 返回指定元素相對於有父元素(offsetParent)中的頂端位置，元素最上緣與父元素最上緣的距離
     * [HTMLElement​.offsetTop](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop)
 
+# 14 - JavaScript References VS Copying
 
+* JavaScript 原始型態 (Primitive Type)
+  1. strings
+  2. numbers
+  3. booleans
+  4. null 
+  5. undefine
 
+  * **Call by value**
+    * 原始型別都是 Call by value，當複製時不影響彼此
+        ```javascript
+        let age = 100;
+        let age2 = age;
+        console.log(age, age2); // 100 100
+        age = 200;
+        console.log(age, age2); // 200 100
+        ```
+    * 最初的`age2 = age`使 age2 指向與 age 同一個記憶體位置(存放 numbers : 100)，而當`age = 200`時， age 建立了一個新的記憶體位置存放 numbers : 200，並指向該位置。
 
+* copy 陣列的四種方法
+    ```javascript
+    const team2 = players.slice();
 
+    const team3 = [].concat(players);
 
+    const team4 = [...players];
 
+    const team5 = Array.from(players);
+    ```
 
+* copy 物件的三種方法
+    ```javascript
+    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
 
+    const cap3 = { ...person };
 
+    const dev2 = JSON.parse(JSON.stringify(wes));
+    ```
+
+  * 上述三者中只有 `JSON.parse(JSON.stringify(wes))` 能實現 Deep clone，其餘兩種皆只能 copy 一層。（差別在巢狀結構的處理）
 
 
 
