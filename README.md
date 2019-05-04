@@ -466,5 +466,84 @@
   * 上述三者中只有 `JSON.parse(JSON.stringify(wes))` 能實現 Deep clone，其餘兩種皆只能 copy 一層。（差別在巢狀結構的處理）
 
 
+# 15 - LocalStorage
+
+* `Enter` 提交
+  * 可透過 submit 事件監聽 `Enter` 鍵，再加上 `e.preventDefault()` 取消原本跳轉頁面來完成。
+  * 此作法不須再額外監聽`keyup`事件
+
+    ```javascript
+    addItems.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // 自行添加功能
+    })
+    ``` 
+* `<form>`
+  * 透過`.value`存取 form 裡面的 input
+
+    ```javascript
+    const text = this.querySelector('[name=item]').value;
+    ```
+  * `this.reset()`：清空輸入框
+
+* `<label>`
+  * 生成 checkbox 同時透過 `id` => `for` 作連結
+
+    ```javascript
+    <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}/>
+    <label for="item${i}">${plate.text}</label>
+    <span data-index=${i}>delete<span> 
+    ```
+  * CSS 操作
+    * 先將預設的 `checkbox` => `display: none`，隱藏原本的框框
+    * 再透過 `input:checked` + `label:before` 在`checkbox`生成的時候控制變化
+  
+        ```css
+        .plates input {
+            display: none;
+        }
+
+        .plates input + label:before {
+            content: '⬜️';
+            margin-right: 10px;
+        }
+
+        .plates input:checked + label:before {
+            content: '🌮';
+        }
+        ```
+
+* Local Storage
+  * 設定、拿取、移除
+
+    ```javascript
+    localStorage.setItems('key', 'value');
+    localStorage.getItem('key');
+    localStorage.remove('key');
+    ```
+
+  * 儲存在 Local Storage 的 value 會被強制轉成 String，所以在儲存前就要先做處理
+    ```javascript
+    localStorage.setItem('items', JSON.stringify(items));
+    ```
+  * 同理，從 Local Storage 拿出來 value 時需作型態轉換才能使用
+    ```javascript
+    // 若 Local Storage 中有 value 則存到 items中，若無則設定為空陣列
+    const items = JSON.parse(localStorage.getItem('items')) || [];
+    ```
+
+* event delegation
+  * 把監聽事件放在外層元素，讓內層新增的元素也可以被監聽
+  * 透過 `e.target.matches('yourTarget')` 指定要使用的元素
+
+
+
+
+
+
+
+
+
+
 
 
