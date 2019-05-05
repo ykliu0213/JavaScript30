@@ -595,8 +595,29 @@
   * `map()`
   * `join()`
 
+# 18 - Adding Up Times with Reduce
 
+* NodeList to Array
+  * 注意！ querySelectorAll拿到的是NodeList
+  * 可使用 Array.from() 或 [...] 將 NodeList 轉成 array
 
+    ```javascript
+    // Array.from()
+    const timeNodes = Array.from(document.querySelectorAll('[data-time]'));
+    // spread operator
+    const timeNodes = [...document.querySelectorAll('[data-time]')];
+    ```
+
+* `map()`
+  * 可在`map`中直接使用 function！
+
+    ```javascript
+    const [mins, secs] = timeCode.split(':').map(parseFloat);
+    //等同於
+    const [mins, secs] = timeCode.split(':').map(function(str){
+        return parseFloat(str);
+    });
+    ```
 
 
 
