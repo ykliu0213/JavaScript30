@@ -766,6 +766,64 @@
   * 加在code中可設置暫停點
 
 
+# 20 - Speech Detection
+> Demo steps:  
+> 
+> 1. cd 20\ -\ Speech\ Detection/  
+> 
+> 2. npm install  
+> 
+> 3. npm run start  
+>
+>    `npm指令需要下載node.js來使用`
+
+* 指好瀏覽器中的 Speech Recognition
+  * `window.SpeechRecognition` || `window.webkitSpeechRecognition`
+
+    ```javascript
+    // 將全域環境中的SpeechRecognition指好（根據不同的瀏覽器會有些許不同，因此用'||'處理）
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    ```
+  * `recognition` 設置
+    ```javascript
+    // 建立一個變數recognition來放為語音識別功能
+    const recognition = new SpeechRecognition();
+    // 讓語音識別回傳識別後的資訊（預設為false)
+    recognition.interimResults = true;
+    // 開始識別
+    recognition.start();
+    ```
+* 監聽事件
+  * `recognition.addEventListener('result',(e) => {...});`
+    * 若有識別到語音，則針對識別的`result`作處理
+
+  * `recognition.addEventListener('end', recognition.start);`
+    * 若監聽到單次語音識別結束，則重新開始監聽另一次語音識別
+
+* `result`
+  * `e.results`：回傳一個`SpeechRecognitionResultList`，在此使用`Array.from`將其轉為Array
+  * `e.result[0].isFinal`：是否斷句（結束一個段落，或說結束一次監聽語音識別事件）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
