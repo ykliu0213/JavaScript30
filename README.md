@@ -619,15 +619,151 @@
     });
     ```
 
+# 19 - Webcam Fun
+> Demo steps:  
+> 
+> 1. cd 19\ -\ Webcam\ Fun/  
+> 
+> 2. npm install  
+> 
+> 3. npm run start  
+>
+>    `npm指令需要下載node.js來使用`
+
+* 取得 Webcam 權限
+  * 需要開在安全的 `server` / `localhost`
+  * 作者有提供簡單的 `package.json` 供使用
+
+    ```javascript
+    {
+    "name": "gum",
+    "version": "1.0.0",
+    "description": "",
+    "main": "scripts.js",
+    "scripts": {
+        "start": "browser-sync start --server --files \"*.css, *.html, *.js\""
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.12.5 <2.23.2"
+    }
+    }
+    ```
+
+* 取得影像
+  * 透過`navigator.mediaDevices.getUserMedia`來取得視訊影像（會拿到Promise物件）
+  * `video.srcObject = localMediaStream` 將回傳的MediaStream寫進html的video tag中並播放
+
+    ```javascript
+    function getVideo() {
+        // 取得user的視訊裝置，回傳promise狀態
+        navigator.mediaDevices.getUserMedia({
+            video: true ,
+            audio: false
+        })
+        // 如果允許則把回傳的MediaStream寫進html的video tag中並撥放
+        .then(localMediaStream => {
+            video.srcObject = localMediaStream;
+            video.play();
+        })
+        // 當失敗時作錯誤處理
+        .catch(err => {
+            console.log(`Oh No!! ${err}`);
+        });
+    }
+    ```
+
+* 取得視訊資料並輸出在cavas區塊中
+  * 設定video的實際寬跟高
+    * `const width = video.videoWidth;`
+    * `const height = video.videoHeight;`
+  * 用 [setInterval](https://www.w3schools.com/jsref/met_win_setinterval.asp) 來持續取得目前的影像資訊
+    * `setInterval(function, milliseconds, param1, param2, ...)`
+    * 延遲設置為 16 毫秒
+
+    ```javascript
+    function paintToCanvas() {
+        // 設置寬跟高
+        const width = video.videoWidth;
+        const height = video.videoHeight;
+        canvas.width = width;
+        canvas.height = height;
+
+        // 用setInterval來持續取得目前的影像資訊
+        return setInterval(() => {
+            // 在canvas中設置內容來源與video相同，並且長寬也跟隨video
+            ctx.drawImage(video, 0, 0, width, height);
+        }, 16)
+    }
+    ```
+* 拍照功能
+  * `canvas.toDataURL('image/jpeg')`：利用toDataURL把canvas的內容轉為base64的圖檔資訊
+    * base64：一種基於64個可列印字元來表示二進位資料的表示方法，在此用來表達圖片 
+  * 設置`'a'`元素的`href`還有透過`setAttribute('download', 'photo')`添加屬性將`'a'`元素變更為下載連結
+  * 在`'a'`元素的innerHTML中添加`<img>`的tag，讓圖片出現在網頁上並成為下載連結
+
+    ```javascript
+    function takePhoto() {
+        // 拍照音效 => 把音效切到第0秒並播放
+        snap.currentTime = 0 ;
+        snap.play();
+        // 利用toDataURL把canvas的內容轉為base64的圖檔資訊
+        const data = canvas.toDataURL('image/jpeg');
+        // 用createElemamnt來建立一個新的a元素
+        const link = document.createElement('a');
+        // 設置連結位置為轉圖檔後的base64位置
+        link.href = data;
+        // 設置連結為下載
+        link.setAttribute('download', 'photo');
+        // 內部新增一個預覽圖
+        link.innerHTML = `<img src="${data}" alt="photo" />`;
+        // 在圖片區塞入新圖片（在第一筆的位置）
+        strip.insertBefore(link, strip.firstChild);
+    }
+    ```
+* 濾鏡效果
+  * `pixel.data` 為一個陣列，每個影像上的點都由四個連續的數值決定
+  * 從 `pixels.data[0]` 到 `pixels.data[3]` 分別代表 rgba
+  * 紅色濾鏡：直接對rgb做加減
+
+    ```javascript
+    function redEffect(pixels) {
+        // 透過迴圈將取回的所有像素資料跑一次，i +=4 是因為四個一組(r,g,b,alpha）
+        for( let i = 0 ; i < pixels.data.length ; i += 4 ){
+            // 下面組合就是單純把R(紅色)增強達到紅色濾鏡的效果
+            pixels.data[i + 0] = pixels.data[i + 0] + 200; //Red
+            pixels.data[i + 1] = pixels.data[i + 1] - 50;  //Green
+            pixels.data[i + 2] = pixels.data[i + 2] * 0.5; //Blue
+        }
+        return pixels;
+    }
+    ```
+  * RGB分離濾鏡：將RGB元素平移（ r - 150 , g + 500 , b - 550 ）
+    ```javascript
+    function rgbSplit(pixels) {
+        for (let i = 0; i < pixels.data.length; i+=4) {
+            pixels.data[i - 150] = pixels.data[i + 0]; // RED
+            pixels.data[i + 500] = pixels.data[i + 1]; // GREEN
+            pixels.data[i - 550] = pixels.data[i + 2]; // Blue
+        }
+        return pixels;
+    }
+    ```
+  * 殘影效果：調整 `pixels.data[3]`（alpha）
+  * 將新的`link`放在第一個`child`的前面
+    ```javascript
+    strip.insertBefore(link, strip.firstChild)
+    ```
 
 
+* 監聽 `video`的`canplay`的事件
+  ```javascript
+  video.addEventListener('canplay',paintToCanvas);
+  ```
 
-
-
-
-
-
-
+* debugger
+  * 加在code中可設置暫停點
 
 
 
