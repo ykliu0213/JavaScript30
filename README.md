@@ -554,6 +554,10 @@
     // const width = hero.offsetWidth;
     // const height = hero.offsetHeight;
     ```
+* 鼠標位置 ( cursor position )
+  * `offsetX`：鼠標位置相對於元素的X座標（距離元素左邊）
+  * `offsetY`：鼠標位置相對於元素的Y座標（距離元素上邊）
+  * **注意**：是相對於元素，而不是整個 page！
 
 * Math 進位
   * 和多數語言一樣有`Math.round`、`Math.ceil`、`Math.floor`三種
