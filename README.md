@@ -536,13 +536,42 @@
   * 把監聽事件放在外層元素，讓內層新增的元素也可以被監聽
   * 透過 `e.target.matches('yourTarget')` 指定要使用的元素
 
+# 16 - Mouse Move Shadow
 
+* html attribute
+  * `contenteditable`：使元素內容可以編輯
 
+    ```html
+    <h1 contenteditable>🔥WOAH!</h1>
+    ```
 
+* 解構賦值 ( Destructuring assignment ) 
+  * 可以直接把物件/陣列中的值塞入變數中
 
+    ```javascript
+    const { offsetWidth: width , offsetHeight: height} = hero;
+    // 效果同以下兩行
+    // const width = hero.offsetWidth;
+    // const height = hero.offsetHeight;
+    ```
 
+* Math 進位
+  * 和多數語言一樣有`Math.round`、`Math.ceil`、`Math.floor`三種
+  * `Math.round`：四捨五入
+  * `Math.ceil`：無條件進位
+  * `Math.floor`：無條件捨去
 
+* Css
+  * textShadow，可同時給予多個值，產生出多個影子效果。
 
+    ```javascript
+    text.style.textShadow = `
+    ${xWalk}px ${yWalk}px 0px rgba(255, 0, 255, 0.5),
+    ${xWalk * -1}px ${yWalk}px 0px rgba(0, 255, 255, 0.5),
+    ${yWalk}px ${xWalk * -1}px 0px rgba(0, 255, 0, 0.5),
+    ${yWalk * -1}px ${xWalk}px 0px rgba(0, 0, 255, 0.5)
+    `
+    ```
 
 
 
