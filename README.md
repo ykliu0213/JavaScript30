@@ -577,6 +577,40 @@
     `
     ```
 
+# 17 - Sort Without Articles
+
+* RegExp
+  * 比對字串最前面是否有'a'、'the'、'an'的部分
+  * 在正則中`(a )`與`(a)`是不同的，若只使用`(a)`會將開頭為'a'的單字的字母'a'也取代掉
+
+    ```javascript
+    function strip(bandName) {
+        return bandName.replace(/^(a |the |an )/i, '').trim();
+    }
+    ```
+  * [`trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
+    * 用來去除字串前後的空白，此方法並不會改變原來的字串，而是傳回一個新的字串。
+
+* 將陣列內容轉成HTML（前面章節有使用過）
+  * `map()`
+  * `join()`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
