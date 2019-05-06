@@ -828,8 +828,31 @@
   * `data.coords.heading`
   * 搭配`css`的`rotate`屬性，控制羅盤轉動
 
+# 22 - Follow Along Link Highlighter
 
+* highlight 隨被滑鼠hover的`<a>`移動
+  * 創建一個`<span>`元素，在 link 跟 link 被 hover 時移動
+  * 設置`<span>`元素大小及位置
+    * `this.getBoundingClientRect()`獲得當前hover的`<a>`的內容，此處的`this`即為被hover的`<a>`
+    * 位置的調整還要加上螢幕滾動的處理`scroll`
 
+        ```javascript
+        const coords = {
+            width: linkCoords.width,
+            height: linkCoords.height,
+            top: linkCoords.top + window.scrollY,
+            left: linkCoords.left + window.scrollX
+        }
+        ```
+    * 將處理好的大小及位置數值添加到`<span>`中
+        ```javascript
+        highlight.style.width = `${coords.width}px`;
+        highlight.style.height = `${coords.height}px`;
+        highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`
+        ```
+
+* 本篇構想發源於：
+  * [stripe 官網](https://stripe.com/)
 
 
 
