@@ -833,7 +833,8 @@
 * highlight 隨被滑鼠hover的`<a>`移動
   * 創建一個`<span>`元素，在 link 跟 link 被 hover 時移動
   * 設置`<span>`元素大小及位置
-    * `this.getBoundingClientRect()`獲得當前hover的`<a>`的內容，此處的`this`即為被hover的`<a>`
+    * [this.getBoundingClientRect()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect)：回傳目標元素的大小與相對於瀏覽器視窗的位置資訊
+      * 透過`this.getBoundingClientRect()`獲得當前hover的`<a>`的相關訊息，此處的`this`即為被hover的`<a>`
     * 位置的調整還要加上螢幕滾動的處理`scroll`
 
         ```javascript
