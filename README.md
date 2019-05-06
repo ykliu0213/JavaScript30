@@ -804,10 +804,29 @@
   * `e.results`：回傳一個`SpeechRecognitionResultList`，在此使用`Array.from`將其轉為Array
   * `e.result[0].isFinal`：是否斷句（結束一個段落，或說結束一次監聽語音識別事件）
 
+# 21 - Geolocation
+> Demo steps:  
+> 
+> 1. cd 21\ -\ Geolocation/
+> 
+> 2. npm install  
+> 
+> 3. npm run start  
+>
+>    `npm指令需要下載node.js來使用`
 
+* 需使用模擬器（Windows好像沒有QQ）
 
+* 檢視位置（獲得位置資訊）
+  * `navigator.geolocation.watchPosition(data)`：持續檢視
+  * `navigator.geolocation.getCurrentPosition(data)`：只檢視一次
 
+* 獲取移動速度
+  * `data.coords.spee`
 
+* 獲取移動方位
+  * `data.coords.heading`
+  * 搭配`css`的`rotate`屬性，控制羅盤轉動
 
 
 
