@@ -902,7 +902,7 @@
 
 * `addEventListener` 第三個參數
   * [`target.addEventListener(type, listener[, options]);`](https://developer.mozilla.org/zh-TW/docs/Web/API/EventTarget/addEventListener)
-    * `capture` 屬於 `options` 的其中一個，決定事件的捕捉順序，預設為false，即由內到外。
+    * `capture` 屬於 `options` 的其中一個，決定將監聽事件添加到`capture`階段還是`bubbling`階段，預設false即是添加在`bubbling`階段。
     * `once` 屬於 `options` 的其中一個，只觸發一次後就 unbind 事件。
 * `stopPropagation()`
   * 使原本向外延伸的氣泡事件停止。
