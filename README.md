@@ -887,7 +887,15 @@
         }
     }
     ```
+# 24 - Sticky Nav
 
+* `transform: scale()`
+  * 增減 class 時透過`transform: scale()`達到縮放效果
+* `position: fixed`
+  * fixed 元素在網頁上不占空間，所以突然將元素變成 fixed 時原本網頁的元素會變動位置。
+  * 這裡使用 `padding-top` = `offsetHeight` 來抵銷元素轉成 fixed 時產生的空白（反之，轉回時設定`padding-top` = 0）
+* 取得 `nav` 頂部到整個 page 的頂部距離
+  * `offsetTop`
 
 
 
