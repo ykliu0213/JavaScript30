@@ -855,10 +855,38 @@
 * 本篇構想發源於：
   * [stripe 官網](https://stripe.com/)
 
+# 23 - Speech Synthesis
 
-
-
-
+* 文字轉聲音
+  * [`speechSynthesis`](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis)  WebAPI，用來接收文字轉換發出聲音。
+  * `SpeechSynthesisUtterance` 用來設定 `speechSynthesis` 內的屬性
+  * `voiceschange` 用來監聽的事件
+    ```javascript
+    speechSynthesis.addEventListener('voiceschanged', populateVoices);
+    ```
+  * `speechSynthesis` function
+    * `.getVoice()` 得到該API提供的所有聲音的人名 (`.name`) 和語言縮寫 (`.lang`)
+    * `.speak()` 開始說話
+    * `.stop()` 停止說話
+* 在 `callback` 加入參數的方法
+  * `bind`（第一個參數為thisArg，故此處設定為null）
+    ```javascript
+    addEventListener('click', toggle.bind(null, false));
+    ```
+  * `arrow function`
+    ```javascript
+    addEventListener('click', () => toggle(false));
+    ```
+* 使用同一個 function 達成 start 和 stop 功能
+  * 透過預設參數實作多型（Function Overloading）。
+    ```javascript
+    function toggle( startOver = true ) {
+        speechSynthesis.cancel();
+        if(startOver) {
+            speechSynthesis.speak(msg);
+        }
+    }
+    ```
 
 
 
