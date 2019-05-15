@@ -874,6 +874,7 @@
     addEventListener('click', toggle.bind(null, false));
     ```
   * `arrow function`
+
     ```javascript
     addEventListener('click', () => toggle(false));
     ```
@@ -896,6 +897,34 @@
   * 這裡使用 `padding-top` = `offsetHeight` 來抵銷元素轉成 fixed 時產生的空白（反之，轉回時設定`padding-top` = 0）
 * 取得 `nav` 頂部到整個 page 的頂部距離
   * `offsetTop`
+
+# 25 - Event Capture, Propagation, Bubbling and Once
+
+* `addEventListener` 第三個參數
+  * [`target.addEventListener(type, listener[, options]);`](https://developer.mozilla.org/zh-TW/docs/Web/API/EventTarget/addEventListener)
+    * `capture` 屬於 `options` 的其中一個，決定事件的捕捉順序，預設為false，即由內到外。
+    * `once` 屬於 `options` 的其中一個，只觸發一次後就 unbind 事件。
+* `stopPropagation()`
+  * 使原本向外延伸的氣泡事件停止。
+    ```javascript
+    function logText(e) {
+        console.log(this.classList.value);
+        e.stopPropagation(); // stop bubbling!
+    }
+    ```
+* Event bubbling
+  * Caputure down, bubble up
+
+
+
+
+
+
+
+
+
+
+
 
 
 
