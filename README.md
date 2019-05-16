@@ -984,11 +984,21 @@
     .item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
     ```
 
+# 28 - Video Speed Controller
 
+* 抓取位置（在外層元素內的位置高度）
+  * `e.pageY`：位於整個網頁的位置（距離上方）
+  * `this.offsetTop`：外層元素的位置（距離上方），此處的this為speed元素
+  * 滑鼠位於整頁頂端的Y軸定位 - speed元素框到整頁頂端的距離
 
+    ```javascript
+    const y = e.pageY - this.offsetTop;
+    ```
+* 定點小數表示法
+  * `number.toFixed(digits))`：固定表示幾digits的小數
 
-
-
+* video 播放速度
+  * `video.playbackRate`：控制影片播放速度
 
 
 
