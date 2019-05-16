@@ -915,9 +915,23 @@
 * Event bubbling
   * Caputure down, bubble up
 
+# 26 - Stripe Follow Along Nav
 
+* 滑鼠事件
+  * `mouseenter`：滑鼠滑動到物件上
 
+  * `mouseleave`：滑鼠離開物件
 
+* 白色滑動背景出現的設定
+  * `display: none` -> `display: block`
+  * `opacity: 0` -> `opacity: 1`
+
+    * 設定`setTimeout`，避免白色背景還沒出現內容就先露出來的情況
+    * 由於有設定`setTimeout`，因此有可能出現在add class前就先觸發`mouseleave`的remove class的bug，所以此處要先確定是否有第一個class存在
+
+        ```javascript
+        setTimeout( () => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+        ```
 
 
 
