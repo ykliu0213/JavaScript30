@@ -919,7 +919,6 @@
 
 * 滑鼠事件
   * `mouseenter`：滑鼠滑動到物件上
-
   * `mouseleave`：滑鼠離開物件
 
 * 白色滑動背景出現的設定
@@ -932,6 +931,58 @@
         ```javascript
         setTimeout( () => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
         ```
+
+# 27 - Click and Drag
+
+* 滑鼠事件
+  * `mousedown`：滑鼠按下
+  * `mouseleave`：滑鼠離開範圍
+  * `mouseup`：滑鼠放開
+  * `mousemove`：滑鼠移動
+
+* 抓取位置（在外層元素內的位置）
+  * `e.pageX`：位於整個網頁的位置（距離左側）
+  * `slider.offsetLeft`：外層元素的位置（距離左側）
+  * 設定移動的初始值為目前頁面距離 - 當前item左邊距
+
+    ```javascript
+    startX = e.pageX - slider.offsetLeft;
+    ```
+* 拖曳滾動效果
+  * 點擊時紀錄初始位置，並於每次監聽到移動事件後更新當前位置與初始位置的距離
+
+    ```javascript
+    // mousedown
+    // 設定移動的初始值為目前頁面距離-當前item左邊距
+    startX = e.pageX - slider.offsetLeft;
+    // 設定目前捲軸的左距
+    scrollLeft = slider.scrollLeft;
+
+    // mousemove
+    // 設定X（當前定位）為目前頁面距離-當前item左邊距
+    const x = e.pageX - slider.offsetLeft;
+    // 設定移動距離為 X-初始值
+    const walk = (x - startX) * 3;
+    // 設定水平捲軸的偏移量
+    slider.scrollLeft = scrollLeft - walk;
+    ```
+* `console.log({variables})`
+  * 會同時印出變數名與值
+
+    ```javascript
+    console.log({x,startX});
+    // console output:
+    // Object {x: 100 , startX: 200}
+    ```
+
+* CSS做出偏移效果
+  * HTML中的卡片3D移動的效果，是透過CSS的`rotateY`完成的
+
+    ```javascript
+    /* 用scaleX與rotateY搭配使移動時有3D效果 */
+    .item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
+    .item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
+    ```
 
 
 
