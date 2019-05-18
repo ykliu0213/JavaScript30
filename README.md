@@ -894,8 +894,10 @@
   * 增減 class 時透過`transform: scale()`達到縮放效果
 * `position: fixed`
   * fixed 元素在網頁上不占空間，所以突然將元素變成 fixed 時原本網頁的元素會變動位置。
+
   * 這裡使用 `padding-top` = `offsetHeight` 來抵銷元素轉成 fixed 時產生的空白（反之，轉回時設定`padding-top` = 0）
 * 取得 `nav` 頂部到整個 page 的頂部距離
+
   * `offsetTop`
 
 # 25 - Event Capture, Propagation, Bubbling and Once
@@ -1007,14 +1009,19 @@
   * 第0秒並不會執行
   * `setInterval(function, milliseconds)`
   * 終止`setInterval`程式碼的執行
+
     * 將`setInterval`指派給一個變數 var
+  
     * 透過`clearInterval(var)`將其終止
 * 取得當前時間
   * `Date.now()`：回傳一個以毫秒為單位的時間（自 1970/01/01 00:00:00 UTC 起經過的毫秒數。）
   * `new Date(timestamp)`：建立一個 Date 物件
+  
     * 格式：`Sat May 18 2019 23:26:53 GMT+0800 (台北標準時間)`
+  
     * 透過`getMonth` `getHour` `getMinute`等 function 可取得對應數值
 * 網頁的標題內容（上方分頁欄）
+
   * `document.title`
 * 用 name attribute 取代 querySelector
   * 若 html 文件中的元素有 name 的屬性
@@ -1044,10 +1051,27 @@
     });
     ```
 
+# 30 - Whack A Mole
 
+* 隨機
+  * `Math.random()`：產生一個介於 0 ~ 1 之間的數
+  * 透過數學計算得到需要的範圍
 
+    ```javascript
+    Math.round(Math.random() * (max - min) + min);
+    ```
 
+* 判斷是否為 fake mouse click
+  * `e.isTrusted = true`
+    * `e`為`click`觸發事件，內有`isTrusted`一屬性
+    * `Event.isTrusted`可以判斷事件物件是否由使用者操作來產生，而非透過程是觸發
 
+* `parentNode`
+  * 因為在這裡觸發事件的元素是`mole`，而前面add class是加在`hole`上，因此透過`parentNode`來操作父元素
+
+    ```javascript
+    this.parentNode.classList.remove('up');
+    ```
 
 
 
