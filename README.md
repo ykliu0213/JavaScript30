@@ -1004,6 +1004,7 @@
 
 * `setInterval`：每隔 n 秒執行一次指定程式
   * n 秒為"開始執行"之間的間隔，並不考慮每次執行的耗時（若耗時超過間隔，則事件會累積）
+  * 第0秒並不會執行
   * `setInterval(function, milliseconds)`
   * 終止`setInterval`程式碼的執行
     * 將`setInterval`指派給一個變數 var
