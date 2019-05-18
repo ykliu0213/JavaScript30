@@ -1,6 +1,7 @@
 # JavaScript30
 
 ## 01 - JavaScript Drum Kit
+> [Demo](https://ykliu0213.github.io/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/index.html)
 * `querySelector` : 尋找符合條件的元素
     ```js
     document.querySelector(`audio[data-key="${event.keyCode}"]`)
@@ -14,6 +15,7 @@
     * 搭配 `class.remove()` 可以做出按鍵被按之後的閃爍效果
 
 ## 02 - JS and CSS Clock
+> [Demo](https://ykliu0213.github.io/JavaScript30/02%20-%20JS%20and%20CSS%20Clock/index.html)
 * `transform` : CSS屬性，能旋轉、傾斜、縮放變形box。
     * 在此用來模擬指針旋轉。
     * rotate() : 旋轉多少degree
@@ -26,7 +28,7 @@
 * `setInterval( func , time )` : 設定間隔，每隔固定time執行一次function。
 
 ## 03 - CSS Variables
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/03%20-%20CSS%20Variables/index.html)
 * HTML input tag
     * range : 控制滑桿（slide control）
     * color : 顏色選擇器（color picker）
@@ -75,6 +77,7 @@
         <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
         ```
 ## 04 - Array Cardio Day 1
+> [Demo](https://ykliu0213.github.io/JavaScript30/04%20-%20Array%20Cardio%20Day%201/index.html)
 #### Array.prototype function
 * filter()  
     * 回傳符合條件的元素組成的新的陣列。（過濾陣列內的元素，並回傳過濾後的新陣列）  
@@ -121,6 +124,7 @@
         // fifteen 為一個陣列
         ```
 ## 05 - Flex Panel Gallery
+> [Demo](https://ykliu0213.github.io/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index.html)
 * `display: flex;`
     * Flex 排版的大致定義，是能更改該項目的長與（或）高，以便貼合任何顯示設備的空間。
     * 由 container 和 items 所組成。
@@ -144,6 +148,7 @@
     * 在 transition 結束時會觸發
 
 ## 06 - Type Ahead
+> [Demo](https://ykliu0213.github.io/JavaScript30/06%20-%20Type%20Ahead/index.html)
 * `fetch`
     * 讓開發者能夠用更簡潔的語法取得非同步資料（可替代XMLHttpRequest）
     * `fetch`回傳的是 promise 物件
@@ -181,6 +186,7 @@
     }
     ```
 ## 07 - Array Cardio Day 2
+> [Demo](https://ykliu0213.github.io/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
 * `.some()`
     * 檢查陣列中是否至少有一個元素符合條件。
     * 語法：`arr.some(callback[, thisArg]);` 
@@ -228,7 +234,7 @@
     * `Deep copy`：創造一個一模一樣的新物件，與原物件分別用不同塊記憶體。
 
 ## 08 - Fun with HTML5 Canvas
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
 * Canvas 大小
     * 設定 canvas 寬跟高為整個視窗
 
@@ -272,6 +278,7 @@
     * lightness = 0~100%
 
 ## 09 - Dev Tools Domination
+> [Demo](https://ykliu0213.github.io/JavaScript30/09%20-%20Dev%20Tools%20Domination/index.html)
 * Chrome dev tools
     * 在元素上按右鍵 => break on => attribute modification
     
@@ -337,7 +344,7 @@
         * 將列表型的數據印成表格
 
 ## 10 - Hold Shift and Check Checkboxes
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
 * 偵測使用者 shift 鍵的輸入
     * `e.shiftKey`
     
@@ -356,7 +363,7 @@
         ```
 
 ## 11 - Custom Video Player
-
+> [Demo]https://ykliu0213.github.io/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
 * html `<video>` tag
     * 自動撥放：`autoplay`
     * 影片是否暫停：`video.paused`
@@ -397,7 +404,7 @@
         ```
 
 ## 12 - Key Sequence Detection
-        
+> [Demo](https://ykliu0213.github.io/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)        
 * `.splice()`
     * 語法：`array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
     * start 若為負，則從最後一個元素往前數（-1 開始）
@@ -407,7 +414,7 @@
         ```
 
 # 13 - Slide in on Scroll
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/13%20-%20Slide%20in%20on%20Scroll/index.html)
 * `debounce(func, wait = 20, immediate = true)`
     * Scroll 事件觸發太頻繁，每次滾動頁面都會有大量事件觸發，因此需要限制單位時間內觸發頻率
     * 監聽事件也因此改成這樣：`window.addEventListener('scroll', debounce(checkSlide));`
@@ -424,7 +431,7 @@
     * [HTMLElement​.offsetTop](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop)
 
 # 14 - JavaScript References VS Copying
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/14%20-%20JavaScript%20References%20VS%20Copying/index.html)
 * JavaScript 原始型態 (Primitive Type)
   1. strings
   2. numbers
@@ -467,7 +474,7 @@
 
 
 # 15 - LocalStorage
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/15%20-%20LocalStorage/index.html)
 * `Enter` 提交
   * 可透過 submit 事件監聽 `Enter` 鍵，再加上 `e.preventDefault()` 取消原本跳轉頁面來完成。
   * 此作法不須再額外監聽`keyup`事件
@@ -537,7 +544,7 @@
   * 透過 `e.target.matches('yourTarget')` 指定要使用的元素
 
 # 16 - Mouse Move Shadow
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/16%20-%20Mouse%20Move%20Shadow/index.html)
 * html attribute
   * `contenteditable`：使元素內容可以編輯
 
@@ -578,7 +585,7 @@
     ```
 
 # 17 - Sort Without Articles
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/17%20-%20Sort%20Without%20Articles/index.html)
 * RegExp
   * 比對字串最前面是否有'a'、'the'、'an'的部分
   * 在正則中`(a )`與`(a)`是不同的，若只使用`(a)`會將開頭為'a'的單字的字母'a'也取代掉
@@ -596,7 +603,7 @@
   * `join()`
 
 # 18 - Adding Up Times with Reduce
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/18%20-%20Adding%20Up%20Times%20with%20Reduce/index.html)
 * NodeList to Array
   * 注意！ querySelectorAll拿到的是NodeList
   * 可使用 Array.from() 或 [...] 將 NodeList 轉成 array
@@ -829,7 +836,7 @@
   * 搭配`css`的`rotate`屬性，控制羅盤轉動
 
 # 22 - Follow Along Link Highlighter
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/22%20-%20Follow%20Along%20Link%20Highlighter/index.html)
 * highlight 隨被滑鼠hover的`<a>`移動
   * 創建一個`<span>`元素，在 link 跟 link 被 hover 時移動
   * 設置`<span>`元素大小及位置
@@ -856,7 +863,7 @@
   * [stripe 官網](https://stripe.com/)
 
 # 23 - Speech Synthesis
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/23%20-%20Speech%20Synthesis/index.html)
 * 文字轉聲音
   * [`speechSynthesis`](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis)  WebAPI，用來接收文字轉換發出聲音。
   * `SpeechSynthesisUtterance` 用來設定 `speechSynthesis` 內的屬性
@@ -889,7 +896,7 @@
     }
     ```
 # 24 - Sticky Nav
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/24%20-%20Sticky%20Nav/index.html)
 * `transform: scale()`
   * 增減 class 時透過`transform: scale()`達到縮放效果
 * `position: fixed`
@@ -901,7 +908,7 @@
   * `offsetTop`
 
 # 25 - Event Capture, Propagation, Bubbling and Once
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/25%20-%20Event%20Capture,%20Propagation,%20Bubbling%20and%20Once/index.html)
 * `addEventListener` 第三個參數
   * [`target.addEventListener(type, listener[, options]);`](https://developer.mozilla.org/zh-TW/docs/Web/API/EventTarget/addEventListener)
     * `capture` 屬於 `options` 的其中一個，決定將監聽事件添加到`capture`階段還是`bubbling`階段，預設false即是添加在`bubbling`階段。
@@ -918,7 +925,7 @@
   * Caputure down, bubble up
 
 # 26 - Stripe Follow Along Nav
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/26%20-%20Stripe%20Follow%20Along%20Nav/index.html)
 * 滑鼠事件
   * `mouseenter`：滑鼠滑動到物件上
   * `mouseleave`：滑鼠離開物件
@@ -935,7 +942,7 @@
         ```
 
 # 27 - Click and Drag
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/27%20-%20Click%20and%20Drag/index.html)
 * 滑鼠事件
   * `mousedown`：滑鼠按下
   * `mouseleave`：滑鼠離開範圍
@@ -987,7 +994,7 @@
     ```
 
 # 28 - Video Speed Controller
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/28%20-%20Video%20Speed%20Controller/index.html)
 * 抓取位置（在外層元素內的位置高度）
   * `e.pageY`：位於整個網頁的位置（距離上方）
   * `this.offsetTop`：外層元素的位置（距離上方），此處的this為speed元素
@@ -1003,7 +1010,7 @@
   * `video.playbackRate`：控制影片播放速度
 
 # 29 - Countdown Timer
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/29%20-%20Countdown%20Timer/index.html)
 * `setInterval`：每隔 n 秒執行一次指定程式
   * n 秒為"開始執行"之間的間隔，並不考慮每次執行的耗時（若耗時超過間隔，則事件會累積）
   * 第0秒並不會執行
@@ -1052,7 +1059,7 @@
     ```
 
 # 30 - Whack A Mole
-
+> [Demo](https://ykliu0213.github.io/JavaScript30/30%20-%20Whack%20A%20Mole/index.html)
 * 隨機
   * `Math.random()`：產生一個介於 0 ~ 1 之間的數
   * 透過數學計算得到需要的範圍
