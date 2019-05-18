@@ -1000,6 +1000,50 @@
 * video 播放速度
   * `video.playbackRate`：控制影片播放速度
 
+# 29 - Countdown Timer
+
+* `setInterval`：每隔 n 秒執行一次指定程式
+  * n 秒為"開始執行"之間的間隔，並不考慮每次執行的耗時（若耗時超過間隔，則事件會累積）
+  * `setInterval(function, milliseconds)`
+  * 終止`setInterval`程式碼的執行
+    * 將`setInterval`指派給一個變數 var
+    * 透過`clearInterval(var)`將其終止
+* 取得當前時間
+  * `Date.now()`：回傳一個以毫秒為單位的時間（自 1970/01/01 00:00:00 UTC 起經過的毫秒數。）
+  * `new Date(timestamp)`：建立一個 Date 物件
+    * 格式：`Sat May 18 2019 23:26:53 GMT+0800 (台北標準時間)`
+    * 透過`getMonth` `getHour` `getMinute`等 function 可取得對應數值
+* 網頁的標題內容（上方分頁欄）
+  * `document.title`
+* 用 name attribute 取代 querySelector
+  * 若 html 文件中的元素有 name 的屬性
+
+    ```html
+    <form name="customForm" id="custom">
+        <input type="text" name="minutes" placeholder="Enter Minutes">
+    </form>
+    ```
+  * 則在script中可透過 name attribute 抓到該元素
+    ```javascript
+    const customForm = document.customForm;
+    const inputMinute = document.customForm.minutes;
+    ```
+  * 從 Form & input 取得輸入值，且留在原頁面
+    ```javascript
+    // HTML中的input自訂倒數時間輸入欄位監聽
+    document.customForm.addEventListener('submit', function(e) {
+        // 因為用form，submit後避免跳頁使用preventDefault()來阻止預設事件
+        e.preventDefault();
+        // 取得input欄位的值
+        const mins = this.minutes.value;
+        // 傳入計時器
+        timer(mins * 60);
+        // 清空input
+        this.reset();
+    });
+    ```
+
+
 
 
 
